@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('dancers/create', 'Admin\DancersController@add');
      Route::post('dancers/create', 'Admin\DancersController@create');
+     Route::get('dancers', 'Admin\DancersController@index')->middleware('auth');
 });
 
 

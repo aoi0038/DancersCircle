@@ -23,9 +23,9 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2" for="genre">ジャンル</label>
+                        <label class="col-md-2" for="janru">ジャンル</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="genre" value="{{ old('genre') }}">
+                            <input type="text" class="form-control" name="janru" value="{{ old('janru') }}">
                         </div>
                     </div>
         
