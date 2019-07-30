@@ -22,6 +22,8 @@ Route::group(['prefix' => 'admin'], function() {
      Route::get('dancers/edit', 'Admin\DancersController@edit')->middleware('auth');
      Route::post('dancers/edit', 'Admin\DancersController@update')->middleware('auth');
      Route::get('dancers/delete', 'Admin\DancersController@delete')->middleware('auth');
+     Route::get('dancers/category', 'Admin\DancersController@category')->middleware('auth');
+
 });
 
 Route::get('/', 'DancersController@index');

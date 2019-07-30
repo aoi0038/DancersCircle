@@ -72,3 +72,25 @@ body {
 .login-body {
   background-color: rgba(150, 150, 150, 0.8);
 }
+
+#menu li{ 
+display: inline; 
+padding: 0; 
+margin: 0; 
+}
+#menu li a{
+display: block; 
+border: 1px solid #9F99A3;
+background-color: #EEEEEE;
+padding: 3px 10px;
+text-decoration: none;
+color: #333;
+width: 150px; 
+margin: 2px 0px;
+text-align: left;
+font-size: 14px;
+}
+#menu li a:hover{
+border: 1px solid #8593A9;
+background-color: #9EB7DD;
+}

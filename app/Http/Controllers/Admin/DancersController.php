@@ -102,12 +102,17 @@ class DancersController extends Controller
     }
     
     public function delete(Request $request)
-  {
+    {
       // 該当するNews Modelを取得
       $dancers = Dancers::find($request->id);
       // 削除する
       $dancers->delete();
       return redirect('admin/dancers/');
-  }
+    }
+   
+    public function category()
+    {
+        return view('admin.dancers.category');
+    }
     
 }
