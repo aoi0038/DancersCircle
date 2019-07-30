@@ -57,6 +57,14 @@
                         </div>
                     </div>
                 </form>
+                <h2>編集履歴</h2>
+                <ul class="list-group">
+                    @if ($dancers_form->histories != NULL)
+                        @foreach ($dancers_form->histories as $history)
+                            <li class="list-group-item">{{ $history->edited_at }}</li>
+                        @endforeach
+                    @endif
+                </ul>
             </div>
         </div>
     </div>

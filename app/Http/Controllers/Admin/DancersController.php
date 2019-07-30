@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Dancers;
+use App\History;
+use Carbon\Carbon;
 
 
 class DancersController extends Controller
@@ -77,19 +79,26 @@ class DancersController extends Controller
       $dancers = Dancers::find($request->id);
       // 送信されてきたフォームデータを格納する
       $dancers_form = $request->all();
-      if (isset($dancers_form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $dancers->image_path = basename($path);
-        unset($dancers_form['image']);
-      } elseif (isset($request->remove)) {
-        $dancers->image_path = null;
-        unset($dancers_form['remove']);
-      }
+      if ($request->remove == 'true') {
+            $dancers_form['image_path'] = null;
+        } elseif ($request->file('image')) {
+            $path = $request->file('image')->store('public/image');
+            $dancers_form['image_path'] = basename($path);
+        } else {
+            $dancers_form['image_path'] = $dancers->image_path;
+        }
       unset($dancers_form['_token']);
-      // 該当するデータを上書きして保存する
+      unset($dancers_form['image']);
+      unset($dancers_form['remove']);
+      
       $dancers->fill($dancers_form)->save();
+      
+      $history = new History;
+      $history->dancers_id = $dancers->id;
+      $history->edited_at = Carbon::now();
+      $history->save();
 
-        return redirect('admin/dancers/edit');
+      return redirect('admin/dancers/');
     }
     
     public function delete(Request $request)

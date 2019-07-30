@@ -13,5 +13,12 @@ class Dancers extends Model
         'name' => 'required',
         'janru' => 'required',
         'tweet' => 'required',
-    );
+    );    
+    // Dancersモデルに関連付けを行う
+    public function histories()
+    {
+      return $this->hasMany('App\History');
+
+    }
+   
 }

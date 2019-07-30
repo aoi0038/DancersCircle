@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin'], function() {
      Route::get('dancers/delete', 'Admin\DancersController@delete')->middleware('auth');
 });
 
+Route::get('/', 'DancersController@index');
 
 
 Auth::routes();
