@@ -9,7 +9,7 @@ use App\Dancers;
 
 class DancersController extends Controller
 {
-    //
+    
     public function add()
     {
         return view('admin.dancers.create');
@@ -45,7 +45,7 @@ class DancersController extends Controller
     }
     
     public function index(Request $request)
-  {
+    {
       $cond_name = $request->cond_name;
       if ($cond_name != '') {
           // 検索されたら検索結果を取得する
@@ -55,24 +55,50 @@ class DancersController extends Controller
           $posts = Dancers::all();
       }
       return view('admin.dancers.index', ['posts' => $posts, 'cond_name' => $cond_name]);
-  }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public function edit()
-    {
-        return view('admin.dancers.edit');
     }
     
-    public function update()
+    
+    public function edit(Request $request)
     {
+      // Dancers Modelからデータを取得する
+      $dancers = Dancers::find($request->id);
+      if (empty($dancers)) {
+        abort(404);    
+      }
+      return view('admin.dancers.edit', ['dancers_form' => $dancers]);
+    }
+
+    
+    public function update(Request $request)
+    {
+        // Validationをかける
+      $this->validate($request, Dancers::$rules);
+      // Dancers Modelからデータを取得する
+      $dancers = Dancers::find($request->id);
+      // 送信されてきたフォームデータを格納する
+      $dancers_form = $request->all();
+      if (isset($dancers_form['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $dancers->image_path = basename($path);
+        unset($dancers_form['image']);
+      } elseif (isset($request->remove)) {
+        $dancers->image_path = null;
+        unset($dancers_form['remove']);
+      }
+      unset($dancers_form['_token']);
+      // 該当するデータを上書きして保存する
+      $dancers->fill($dancers_form)->save();
+
         return redirect('admin/dancers/edit');
     }
+    
+    public function delete(Request $request)
+  {
+      // 該当するNews Modelを取得
+      $dancers = Dancers::find($request->id);
+      // 削除する
+      $dancers->delete();
+      return redirect('admin/dancers/');
+  }
+    
 }

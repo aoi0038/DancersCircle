@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="list-news col-md-12 mx-auto">
+            <div class="admin-dancers col-md-12 mx-auto">
                 <div class="row">
                     <table class="table table-dark">
                         <thead>
@@ -34,7 +34,8 @@
                                 <th width="10%">ID</th>
                                 <th width="20%">ダンサーネーム</th>
                                 <th width="20%">ジャンル</th>
-                                <th width="50%">つぶやき</th>
+                                <th width="40%">つぶやき</th>
+                                <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,7 +44,15 @@
                                     <th>{{ $dancers->id }}</th>
                                     <td>{{ str_limit($dancers->name, 100) }}</td>
                                     <td>{{ str_limit($dancers->janru, 100) }}</td>
-                                    <td>{{ str_limit($dancers->tweet, 250) }}</td>
+                                    <td>{{ str_limit($dancers->tweet, 300) }}</td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('Admin\DancersController@edit', ['id' => $dancers->id]) }}">編集</a>
+                                        </div>
+                                        <div>
+                                            <a href="{{ action('Admin\DancersController@delete', ['id' => $dancers->id]) }}">削除</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
