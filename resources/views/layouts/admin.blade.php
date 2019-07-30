@@ -28,6 +28,8 @@
     </head>
     <body>
         <div id="app">
+            <!--<div class="background-image">-->
+            <!--</div>-->
             {{-- 画面上部に表示するナビゲーションバーです。 --}}
             <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
                 <div class="container">

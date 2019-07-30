@@ -46,15 +46,15 @@ class DancersController extends Controller
     
     public function index(Request $request)
   {
-      $cond_title = $request->cond_title;
-      if ($cond_title != '') {
+      $cond_name = $request->cond_name;
+      if ($cond_name != '') {
           // 検索されたら検索結果を取得する
-          $posts = Dancers::where('title', $cond_title)->get();
+          $posts = Dancers::where('name', 'LIKE',"%$cond_name%")->get();
       } else {
           // それ以外はすべてのニュースを取得する
           $posts = Dancers::all();
       }
-      return view('admin.dancers.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('admin.dancers.index', ['posts' => $posts, 'cond_name' => $cond_name]);
   }
     
     

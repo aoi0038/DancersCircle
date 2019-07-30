@@ -13,9 +13,9 @@
             <div class="col-md-8">
                 <form action="{{ action('Admin\DancersController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
+                        <label class="col-md-2">ダンサーネーム</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
+                            <input type="text" class="form-control" name="cond_name" value="{{ $cond_name }}">
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
@@ -43,7 +43,7 @@
                                     <th>{{ $dancers->id }}</th>
                                     <td>{{ str_limit($dancers->name, 100) }}</td>
                                     <td>{{ str_limit($dancers->janru, 100) }}</td>
-                                    <td>{{ str_limit($dancers->body, 250) }}</td>
+                                    <td>{{ str_limit($dancers->tweet, 250) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
