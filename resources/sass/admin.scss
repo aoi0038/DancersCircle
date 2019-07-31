@@ -18,26 +18,6 @@ body {
 
 }
 
-// .background-image{
-//   // height:100vh;
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   // background-color: #000;
-//   background-image:url("https://images.pexels.com/photos/1525612/pexels-photo-1525612.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
-//   color: #fff;
-
-//   background-position: center center;
-   
-//   /* 画像をタイル状に繰り返し表示しない */
-//   background-repeat: no-repeat;
-   
-//   /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-//   background-attachment: fixed;
-   
-//   /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
-//   background-size: cover;
-//   opacity:0.5;
-// }
 
 .navbar-laravel {
   background-color: rgba(150, 150, 150, 0.9);
@@ -74,19 +54,30 @@ body {
 }
 
 .btn-circle-flat {
-  display: inline-block;
+  display: block;
   text-decoration: none;
   background: #87befd;
   color: #FFF;
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   line-height: 120px;
   border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
+  float: left;
+  margin-right: 20px;
+  
 }
 
 .btn-circle-flat:hover {
   background: #668ad8;
+}
+
+h1 {
+  text-align:center
+}
+
+h2 {
+  text-align:center
 }

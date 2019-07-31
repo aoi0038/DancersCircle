@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        <h1>DancersTweet 一覧</h1>
         <hr color="#c0c0c0">
         @if (!is_null($headline))
             <div class="row">
@@ -14,13 +15,22 @@
                                         <img src="{{ asset('storage/image/' . $headline->image_path) }}">
                                     @endif
                                 </div>
-                                <div class="title p-2">
-                                    <h1>{{ str_limit($headline->title, 70) }}</h1>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <p class="body mx-auto">{{ str_limit($headline->body, 650) }}</p>
+                                <div class="date">
+                                    {{ $headline->updated_at->format('Y年m月d日') }}
+                                </div>
+                                <div class="name">
+                                    {{ str_limit($headline->name, 150) }}
+                                </div>
+                                <div class="janru">
+                                    {{ str_limit($headline->janru, 150) }}
+                                </div>
+                                <div class="tweet mt-3">
+                                    {{ str_limit($headline->tweet, 1500) }}
+                                </div>
+
                         </div>
                     </div>
                 </div>

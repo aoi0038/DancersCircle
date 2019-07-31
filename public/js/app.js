@@ -49370,6 +49370,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/dancers.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/dancers.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/front.scss":
 /*!***********************************!*\
   !*** ./resources/sass/front.scss ***!
@@ -49391,7 +49402,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! /home/ec2-user/environment/dancers/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /home/ec2-user/environment/dancers/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /home/ec2-user/environment/dancers/resources/sass/admin.scss */"./resources/sass/admin.scss");
-!(function webpackMissingModule() { var e = new Error("Cannot find module '/home/ec2-user/environment/dancers/resources/sass/dancers.scss'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+__webpack_require__(/*! /home/ec2-user/environment/dancers/resources/sass/dancers.scss */"./resources/sass/dancers.scss");
 module.exports = __webpack_require__(/*! /home/ec2-user/environment/dancers/resources/sass/front.scss */"./resources/sass/front.scss");
 
 

@@ -49,20 +49,30 @@ body {
 }
 
 .btn-circle-flat {
-  display: inline-block;
+  display: block;
   text-decoration: none;
   background: #87befd;
   color: #FFF;
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   line-height: 120px;
   border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: 0.4s;
+  float: left;
+  margin-right: 20px;
 }
 
 .btn-circle-flat:hover {
   background: #668ad8;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
 }
 
