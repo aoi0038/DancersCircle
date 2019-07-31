@@ -4,11 +4,10 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 mx-auto">
-                <h1>Welcom to "DancersCircle!!"</h1>
-                <h2>ダンスをする目的を選択してください</h2>
-                <form action="{{ action('Admin\DancersController@create') }}" method="post" enctype="multipart/form-data">
-
+            <div class="col-md-9 mx-auto">
+                <h1 class="mb-4">Welcom to "DancersCircle!!"</h1>
+                <p>ダンスをする目的を選択してください</p>
+                <div class="row">
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -16,13 +15,20 @@
                             @endforeach
                         </ul>
                     @endif
-                        <a href="#" class="btn-circle-flat">プロダンサーになる</a>
-                        <a href="#" class="btn-circle-flat">発表会に出演する</a>
-                        <a href="#" class="btn-circle-flat">趣味として</a>
-                        <a href="#" class="btn-circle-flat">エクササイズとして</a>
-
+                        <div class="col-md-3">
+                         <a href="http://a5bed44784fe41bda93fb1e78a64c266.vfs.cloud9.us-east-2.amazonaws.com/admin/dancers/" class="btn-circle-flat">プロダンサーになる</a>
+                        </div>
+                        <div class="col-md-3">
+                         <a href="http://a5bed44784fe41bda93fb1e78a64c266.vfs.cloud9.us-east-2.amazonaws.com/admin/dancers/" class="btn-circle-flat">発表会に出演する</a>
+                        </div>
+                        <div class="col-md-3">
+                         <a href="http://a5bed44784fe41bda93fb1e78a64c266.vfs.cloud9.us-east-2.amazonaws.com/admin/dancers/" class="btn-circle-flat">趣味として</a>
+                        </div>
+                        <div class="col-md-3">
+                         <a href="http://a5bed44784fe41bda93fb1e78a64c266.vfs.cloud9.us-east-2.amazonaws.com/admin/dancers/" class="btn-circle-flat">エクササイズとして</a>
+                        </div>
                     {{ csrf_field() }}
-                </form>
+                </div>
             </div>
         </div>
     </div>

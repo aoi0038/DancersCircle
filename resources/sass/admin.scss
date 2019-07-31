@@ -65,9 +65,8 @@ body {
   text-align: center;
   overflow: hidden;
   transition: .4s;
-  float: left;
-  margin-right: 20px;
-  
+  // float: left;
+
 }
 
 .btn-circle-flat:hover {
@@ -78,6 +77,10 @@ h1 {
   text-align:center
 }
 
-h2 {
+p {
   text-align:center
+}
+
+div.image img {
+  width: 300px;
 }
