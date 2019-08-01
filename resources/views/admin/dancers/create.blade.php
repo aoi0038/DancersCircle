@@ -35,6 +35,7 @@
                             <textarea class="form-control" name="tweet" rows="20">{{ old('tweet') }}</textarea>
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label class="col-md-2" for="title">画像</label>
                         <div class="col-md-10">

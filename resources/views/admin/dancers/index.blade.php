@@ -39,10 +39,10 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a href="{{ action('Admin\DancersController@add') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <form action="{{ action('Admin\DancersController@index') }}" method="get">
                     <div class="form-group row">
                         <label class="col-md-2">ダンサーネーム</label>
