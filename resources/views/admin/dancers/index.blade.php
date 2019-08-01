@@ -1,7 +1,8 @@
 @extends('layouts.admin')
-@section('title', 'Dancers tweet一覧')
+@section('title', 'Dancers Tweet一覧')
 
 @section('content')
+      <h1>Dancers Tweet一覧</h1>
         <hr color="#c0c0c0">
         <div class="row">
             <div class="posts col-md-8 mx-auto mt-3">
@@ -37,9 +38,6 @@
 
 
     <div class="container">
-        <div class="row">
-            <h2>Dancers tweet一覧</h2>
-        </div>
         <div class="row">
             <div class="col-md-4">
                 <a href="{{ action('Admin\DancersController@add') }}" role="button" class="btn btn-primary">新規作成</a>

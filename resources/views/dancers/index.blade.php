@@ -1,72 +1,65 @@
-@extends('layouts.front')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
-        <h1>DancersTweet 一覧</h1>
-        <hr color="#c0c0c0">
-        @if (!is_null($headline))
-            <div class="row">
-                <div class="headline col-md-10 mx-auto">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="caption mx-auto">
-                                <div class="image">
-                                    @if ($headline->image_path)
-                                        <img src="{{ asset('storage/image/' . $headline->image_path) }}">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="login-box card">
+                    <div class="login-header card-header mx-auto">{{ __('messages.Login') }}</div>
+
+                    <div class="login-body card-body">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('messages.E-Mail Address') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+
+                                    @if ($errors->has('email'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                                <div class="date">
-                                    {{ $headline->updated_at->format('Y年m月d日') }}
-                                </div>
-                                <div class="name">
-                                    {{ str_limit($headline->name, 150) }}
-                                </div>
-                                <div class="janru">
-                                    {{ str_limit($headline->janru, 150) }}
-                                </div>
-                                <div class="tweet mt-3">
-                                    {{ str_limit($headline->tweet, 1500) }}
-                                </div>
 
-                        </div>
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('messages.Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                                    @if ($errors->has('password'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('messages.Remember Me') }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Login') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        @endif
-        <hr color="#c0c0c0">
-        <div class="row">
-            <div class="posts col-md-8 mx-auto mt-3">
-                @foreach($posts as $post)
-                    <div class="post">
-                        <div class="row">
-                            <div class="text col-md-6">
-                                <div class="date">
-                                    {{ $post->updated_at->format('Y年m月d日') }}
-                                </div>
-                                <div class="name">
-                                    {{ str_limit($post->name, 150) }}
-                                </div>
-                                <div class="janru">
-                                    {{ str_limit($post->janru, 150) }}
-                                </div>
-                                <div class="tweet mt-3">
-                                    {{ str_limit($post->tweet, 1500) }}
-                                </div>
-                            </div>
-                            <div class="image col-md-6 text-right mt-4">
-                                @if ($post->image_path)
-                                    <img src="{{ asset('storage/image/' . $post->image_path) }}">
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    <hr color="#c0c0c0">
-                @endforeach
-            </div>
         </div>
-    </div>
     </div>
 @endsection
