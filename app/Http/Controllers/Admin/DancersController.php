@@ -43,7 +43,7 @@ class DancersController extends Controller
       $dancers->fill($form);
       $dancers->save();
       
-      return redirect('admin/dancers/create');
+      return redirect('admin/dancers/');
     }
     
     public function index(Request $request)
