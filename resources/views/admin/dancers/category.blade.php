@@ -16,16 +16,16 @@
                         </ul>
                     @endif
                         <div class="col-md-3">
-                         <a href="http://a5bed44784fe41bda93fb1e78a64c266.vfs.cloud9.us-east-2.amazonaws.com/admin/dancers/" class="btn-circle-flat">プロダンサーになる</a>
+                         <a href={{ route('admin.dancers') }} class="btn-circle-flat">プロダンサーになる</a>
                         </div>
                         <div class="col-md-3">
-                         <a href="http://a5bed44784fe41bda93fb1e78a64c266.vfs.cloud9.us-east-2.amazonaws.com/admin/dancers/" class="btn-circle-flat">発表会に出演する</a>
+                         <a href={{ url("/admin/dancers") }} class="btn-circle-flat">発表会に出演する</a>
                         </div>
                         <div class="col-md-3">
-                         <a href="http://a5bed44784fe41bda93fb1e78a64c266.vfs.cloud9.us-east-2.amazonaws.com/admin/dancers/" class="btn-circle-flat">趣味として</a>
+                         <a href={{ route('admin.dancers') }} class="btn-circle-flat">趣味として</a>
                         </div>
                         <div class="col-md-3">
-                         <a href="http://a5bed44784fe41bda93fb1e78a64c266.vfs.cloud9.us-east-2.amazonaws.com/admin/dancers/" class="btn-circle-flat">エクササイズとして</a>
+                         <a href={{ route('admin.dancers') }} class="btn-circle-flat">エクササイズとして</a>
                         </div>
                     {{ csrf_field() }}
                 </div>
